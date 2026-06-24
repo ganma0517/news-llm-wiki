@@ -1,0 +1,11 @@
+.DS_Store
+*.DS_Store
+**/.DS_Store
+Thumbs.db
+*.tmp
+.obsidian/workspace
+.obsidian/workspace.json
+__pycache__/
+*.pyc
+analysis/results/*.csv
+!analysis/results/.gitkeep
