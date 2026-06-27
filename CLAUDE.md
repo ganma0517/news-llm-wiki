@@ -1,5 +1,7 @@
 # News Wiki Schema
 
+If `PURPOSE.md` exists in this directory, read it first — it defines the project scope and overrides judgment calls about which events, actors, and themes deserve their own pages.
+
 Read this file at the start of every session before touching any wiki pages.
 
 ---
@@ -48,6 +50,16 @@ When Claude receives a batch of articles, it should ask: "What events and actors
 | `overview` | `wiki/overview/` | Cross-cutting analysis: timelines, comparisons, trend summaries |
 
 Do NOT create a `source-summary` page for individual news articles.
+
+### Page Creation Decision Rules
+
+Before creating a new wiki page, apply these rules:
+
+- **Event page**: story arc with 5+ articles and a clear timeline, AND relevant to the core analysis question in PURPOSE.md
+- **Actor page**: appears in 10+ articles OR plays a pivotal role in a key event
+- **Theme page**: a narrative frame that appears across 3+ events or outlets — not a one-off framing choice
+- **Overview page**: cross-cutting insight spanning multiple events/actors/themes that the user explicitly asks for, or that answers a query with no existing synthesis
+- **When in doubt**: check PURPOSE.md scope — if the event/actor is outside the defined scope, don't create a page; note the article ID in `metadata.csv` only
 
 ---
 
@@ -193,6 +205,13 @@ When user asks a question:
 4. Synthesize answer with `[[wikilinks]]`
 5. If answer reveals new synthesis: proactively save as `wiki/overview/` page
 6. Append to `wiki/log.md`
+
+**When more than 10 pages match:**
+- Priority order: `overview` > `theme` > `actor` > `event`
+- Read all overview and theme pages that match
+- For event/actor pages: read at most 5 (most recently updated first)
+- For raw articles: sample from `metadata.csv` — do not load more than 10 full articles
+- Tell the user: "N additional pages were not read — narrow the time period or topic to go deeper"
 
 ### Lint
 Scan for:
