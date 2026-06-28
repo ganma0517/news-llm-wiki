@@ -21,6 +21,7 @@ The key insight: **news articles are evidence, not units of knowledge**. Ten art
 
 ```
 your-news-project/
+├── PURPOSE.md              # ← Fill this first: project scope + what deserves a wiki page
 ├── raw/
 │   └── news/                   # Raw articles, organized by month
 │       ├── 2025-01/
@@ -63,10 +64,14 @@ metadata.csv           (Python scripts)            Events / Actors / Themes
 
 ## Quick Start
 
+### 0. Fill in PURPOSE.md
+
+Before ingesting anything, open `PURPOSE.md` and describe your project scope: what period, which outlets, what analysis questions, and crucially — what threshold an event or actor must meet to get their own wiki page. Claude reads this first every session.
+
 ### 1. Clone and set up
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/news-llm-wiki.git my-news-project
+git clone https://github.com/ganma0517/news-llm-wiki.git my-news-project
 cd my-news-project
 ```
 
